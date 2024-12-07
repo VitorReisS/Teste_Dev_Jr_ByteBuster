@@ -41,3 +41,9 @@ div {
     padding: 10px;
     border: 1px solid #ccc;
 }
+
+.erro {
+    color: red;
+    font-size: 14px; 
+    margin-top: 4px;
+}
