@@ -1,0 +1,38 @@
+# Backend
+/backend/__pycache__/
+/backend/*.py[cod]
+/backend/*.pyo
+/backend/*.pyd
+/backend/*.log
+/backend/*.sqlite3
+/backend/env/
+/backend/venv/
+/backend/ENV/
+/backend/env.bak/
+/backend/venv.bak/
+/backend/*.env
+/backend/*.bak
+/backend/*.swp
+/backend/*.tmp
+
+# Frontend
+/frontend/node_modules/
+/frontend/npm-debug.log*
+/frontend/yarn-debug.log*
+/frontend/yarn-error.log*
+/frontend/build/
+/frontend/dist/
+/frontend/.env
+
+# Global
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.suo
+*.user
+*.workspace
+*.code-workspace
+.env
+*.log
