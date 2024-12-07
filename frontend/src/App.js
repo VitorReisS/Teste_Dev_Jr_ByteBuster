@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import api from './api';
+import FormularioPessoa from './components/formularioPessoa';
+import ListaPessoas from './components/listaPessoas';
 
-function App() {
+export default function App() {
+  const [pessoas, setPessoas] = useState([]);
+  const [pessoaParaEditar, setPessoaParaEditar] = useState(null);
+
+  const buscarDados = async () => {
+    try {
+      const response = await api.get('/pessoas');
+      setPessoas(response.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    buscarDados();
+  }, []);
+
+  const onEditar = (pessoa) => {
+    setPessoaParaEditar(pessoa);
+  };
+
+  const limparEdicao = () => {
+    setPessoaParaEditar(null);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <FormularioPessoa atualizarDados={buscarDados} pessoaParaEditar={pessoaParaEditar} limparEdicao={limparEdicao} />
+      <ListaPessoas pessoas={pessoas} atualizarDados={buscarDados} onEditar={onEditar} />
+    </>
   );
 }
-
-export default App;
