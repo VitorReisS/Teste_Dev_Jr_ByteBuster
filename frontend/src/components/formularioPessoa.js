@@ -52,7 +52,7 @@ export default function FormularioPessoa({ atualizarDados, pessoaParaEditar, lim
         return Object.keys(novosErros).length === 0;
     };
 
-    const aoEnviar = async (e) => {
+    const onEnviar = async (e) => {
         e.preventDefault();
         if (!validar()) {
             return;
@@ -95,24 +95,24 @@ export default function FormularioPessoa({ atualizarDados, pessoaParaEditar, lim
                 <h1>Cadastro de Pessoas</h1>
             </header>
             <p />
-            <form onSubmit={aoEnviar}>
+            <form onSubmit={onEnviar}>
                 <input name="nome" value={dadosFormulario.nome} onChange={aoAlterar} placeholder="Nome" />
-                {erros.nome && <p style={{ color: 'red' }}>{erros.nome}</p>}
+                {erros.nome && <p className="erro">{erros.nome}</p>}
 
                 <input name="sobrenome" value={dadosFormulario.sobrenome} onChange={aoAlterar} placeholder="Sobrenome" />
-                {erros.sobrenome && <p style={{ color: 'red' }}>{erros.sobrenome}</p>}
+                {erros.sobrenome && <p className="erro">{erros.sobrenome}</p>}
 
                 <input name="endereco" value={dadosFormulario.endereco} onChange={aoAlterar} placeholder="Endereço" />
-                {erros.endereco && <p style={{ color: 'red' }}>{erros.endereco}</p>}
+                {erros.endereco && <p className="erro">{erros.endereco}</p>}
 
                 <input name="cpf" value={dadosFormulario.cpf} onChange={aoAlterar} placeholder="CPF (somente números)" disabled={!!pessoaParaEditar} />
-                {erros.cpf && <p style={{ color: 'red' }}>{erros.cpf}</p>}
+                {erros.cpf && <p className="erro">{erros.cpf}</p>}
 
                 <input name="genero" value={dadosFormulario.genero} onChange={aoAlterar} placeholder="Gênero" />
-                {erros.genero && <p style={{ color: 'red' }}>{erros.genero}</p>}
+                {erros.genero && <p className="erro">{erros.genero}</p>}
 
                 <input name="telefone" value={dadosFormulario.telefone} onChange={aoAlterar} placeholder="Telefone (somente números)" />
-                {erros.telefone && <p style={{ color: 'red' }}>{erros.telefone}</p>}
+                {erros.telefone && <p className="erro">{erros.telefone}</p>}
 
                 <button type="submit">{pessoaParaEditar ? 'Atualizar' : 'Cadastrar'}</button>
                 {pessoaParaEditar && <button type="button" onClick={limparFormulario}>Cancelar Edição</button>}
