@@ -6,7 +6,6 @@
 /backend/*.log
 /backend/*.sqlite3
 /backend/env/
-/backend/venv/
 /backend/ENV/
 /backend/env.bak/
 /backend/venv.bak/
@@ -24,6 +23,22 @@
 /frontend/build/
 /frontend/dist/
 /frontend/.env
+
+# Docker
+.docker/
+docker-compose.override.yml
+docker-compose.yml.bak
+docker-compose.override.yml.bak
+
+# Docker volumes and containers
+**/node_modules/
+**/.docker
+**/build/
+**/dist/
+
+# Dockerfile build context
+**/frontend/build/
+**/frontend/dist/
 
 # Global
 .DS_Store
