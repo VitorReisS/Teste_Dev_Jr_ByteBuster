@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-MONGO_URI = os.getenv('MONGO_URI')  
+MONGO_URI = os.getenv('MONGO_URI', 'mongodb://mongo:27017/cadastro')  
 DATABASE_NAME = os.getenv('DATABASE_NAME')
 
 cliente = MongoClient(MONGO_URI)
